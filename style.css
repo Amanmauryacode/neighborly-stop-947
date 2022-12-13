@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main {
+    width: 80%;
+    /* border: 1px solid red; */
+    margin: auto;
+}
+
+.headsortcut>ul {
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+.headsortcut>ul>li {
+    list-style: none;
+    padding-left: 10px;
+    color: #9E9E9E;
+}
+
+.headsortcut>ul>li img {
+    width: 15px;
+}
+
+/* Headentry  */
+
+
+.headentry {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headentry .logo {
+    width: 20%;
+}
+
+.headentry .logo>img {
+    width: 100%;
+}
+
+.headentry .search {
+    width: 60%;
+    padding-top: 24px;
+
+}
+
+.headentry .cart>.search>input {
+    width: 80%;
+    margin-left: 5%;
+    font-size: 21px;
+    border: 2px solid #ffda00;
+    border-radius: 20px 0 0 20px;
+}
+
+.headentry .cart>.search>button {
+    width: 45.7px;
+    position: relative;
+    top: 1.5px;
+    right: 5px;
+    border: 2px solid #ffda00;
+    border-radius: 0 20px 20px 0;
+    background-color: #ffda00;
+}
+
+.headentry .cart>.search>button>img {
+    width: 50%;
+}
+
+
+.headentry .cart {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart>div {
+    padding-top: 24px;
+}
+
+.cart>div>a {
+    text-decoration: none;
+}
+
+.cart>div>a>img,
+.cart>div>a>span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#favcount,
+#cartcount {
+    background-color: red;
+    border-radius: 34px;
+    width: 11px;
+    text-align: center;
+    font-size: 10px;
+    color: white;
+    position: relative;
+    bottom: 8px;
+}
+
+/* #Heading navigation  */
+
+.headnav {
+    margin-top: 20px;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #ffda00;
+}
+
+.headnav>div>a {
+    text-decoration: none;
+    font-weight: 800;
+    color: black;
+}
+
+/* Slideshow container  */
+
+#category_list {
+    position: absolute;
+    width: 17%;
+    background: rgba(255, 255, 255, 0.6);
+}
+
+#category_list>ul>li {
+    list-style: none;
+    padding-top: 12px;
+    padding-left: 10px;
+}
+
+#slideshow>img {
+    width: 100%;
+}
+
+#category_items > div{
+    position: absolute;
+    display: none;
+    left: 352px;
+    background-color: #fff;
+}
+#category_items > div >div{
+    display: flex;
+    gap: 70px;
+    margin: 28px;
+}
+
+#category_items > div >div>ul>li{
+    list-style: none;
+    padding: 3px;
+}
+#category_items > div >div>ul>li:first-child{
+    font-weight: 900;
+}
+#category_items > div >div>ul>li:hover{
+    color: #ffda00;
+}
+
+
