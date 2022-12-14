@@ -8,18 +8,18 @@ let arr = [
 ]
 
 let div = document.getElementById("slideshow");
-let val = 0;
+let val = 1;
 
 setInterval(function () {
+    div.innerHTML = "";
     if (val === arr.length) {
         val = 0;
     }
-    div.innerHTML = "";
     let img = document.createElement("img")
     img.setAttribute("src", arr[val])
     val++;
     div.append(img);
-}, 2000);
+}, 3000);
 
 let deal = [
     {

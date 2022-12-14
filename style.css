@@ -129,13 +129,16 @@
 
 #category_list>ul>li {
     list-style: none;
-    padding-top: 10px;
+    padding-top: 9.4px;
     padding-left: 10px;
     padding-bottom: 3px;
 }
 #category_list>ul>li:hover{
     background: rgba(255, 255, 255, 1);
     font-weight: 900;
+}
+#slide{
+    min-height: 436px;
 }
 
 #slideshow>img {
@@ -292,6 +295,7 @@
 /* RECOMMENDED FOR YOU  */
 
 #rec{
+    min-height: 1000px;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     gap: 15px;
@@ -323,4 +327,137 @@
 #rec>div>span{
     background: #ffedf1;
     color: #f30240;
+}
+
+footer{
+    background-color:#fafafa;
+    padding-top: 75px;
+}
+.quality{
+    width: 80%;
+    margin: auto;
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 10px;
+    background-color: #fff;
+}
+.quality>div>h2{
+    margin-top:10px ;
+    text-align: center;
+    font-size: 17px;
+}
+
+.quality>div>h2:hover{
+    color: #FFA000 ;
+}
+
+.quality>div>p{
+    text-align: center;
+    width: 80%;
+    font-size: 15px;
+    color: grey;
+    margin: auto;
+}
+.quality>div>span{
+    margin-left: 100px;
+    filter: drop-shadow(2px 4px 2px black);
+}
+.quality>div>span:hover{
+    filter: drop-shadow(2px 4px 2px #FFA000);
+}
+
+.subscribe{
+    width: 80%;
+    margin: auto;
+}
+.subscribe>div{
+    display: flex;
+    margin: 51px 0 0 0;
+}
+
+.subscribe>div>h3{
+    margin-right: 15px;
+    color: grey;
+    margin-top: 8px;
+}
+
+#email{
+    font-size: 20px;
+    padding: 6px;
+    width: 30%;
+}
+
+#subscribe{
+    font-size: 20px;
+    background-color: black;
+    padding: 0 22px;
+    color: white;
+    border: 1px solid black;
+}
+
+#result{
+    color: red;
+    margin-left: 9%;
+    margin-top: 1%;
+}
+
+.links{
+    width: 80%;
+    margin: auto;
+    margin-top: 28px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links>div{
+    width: 20%;
+}
+
+.links>div>div{
+    display: flex;
+    margin-top: 10px;
+}
+.links>div>div>img{
+    width: 40%;
+}
+
+.links>div>div>div>img{
+    margin-bottom: 5px;
+    display: block;
+    background-color: black;
+}
+
+.links ul li{
+    list-style: none;
+}
+
+.links ul li:first-child{
+    margin-bottom: 10px;
+    font-weight: 900;
+}
+
+.impImage{
+    width: 69%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.impImage>div:last-child{
+    width: 52%;
+    margin: auto;
+}
+
+.size{
+    width: 7%;
+}
+
+.footCopyright{
+    margin-top: 50px;
+    line-height: 40px;
+    background-color: #000;
+    color: #e0e0e0;
+    font-size: 12px;
+    text-align: center;
 }
