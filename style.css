@@ -129,8 +129,12 @@
 
 #category_list>ul>li {
     list-style: none;
-    padding-top: 12px;
+    padding-top: 10px;
     padding-left: 10px;
+    padding-bottom: 3px;
+}
+#category_list>ul>li:hover{
+    background: rgba(255, 255, 255, 1);
 }
 
 #slideshow>img {
