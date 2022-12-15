@@ -139,6 +139,31 @@ function showProd(data) {
     })
 }
 
+// Email functionality 
+
+let emailInput = document.getElementById("email");
+let subscribe = document.getElementById("subscribe");
+let success = document.getElementById("succesfully")
+
+subscribe.addEventListener("click",()=>{
+    let email =emailInput.value;
+    let reuslt = document.getElementById("result")
+    let flag = true;
+    for(let i=0;i<email.length;i++){
+        if(email[i] == "@" && email[i+1] != undefined){
+            success.style.display = "block"
+            setTimeout(()=>{
+                success.style.display = "none"
+            },2000)
+            flag = false;
+            break;
+        }
+    }
+    if(flag){
+        reuslt.innerText = "Enter valid email"
+    }
+})
+
 function showul() {
     let div = document.getElementById("list");
     div.style.display = "block"

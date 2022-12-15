@@ -396,6 +396,18 @@ footer{
     border: 1px solid black;
 }
 
+.subscribe>h4{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    font-size: 15px;
+    padding: 16px 43px;
+    background: rgba(0, 0,0, 0.7);
+    color: #ddd6d6;
+    border-radius: 8px;
+}
+
 #result{
     color: red;
     margin-left: 9%;
