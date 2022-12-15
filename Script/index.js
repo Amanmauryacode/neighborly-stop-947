@@ -1,3 +1,5 @@
+
+
 let arr = [
     "https://uidesign.gbtcdn.com/GB/image/5502/1190x420.jpg?imbypass=true"
     , "https://uidesign.gbtcdn.com/GB/image/8823/tools_1190X420_en.jpg"
@@ -160,7 +162,7 @@ subscribe.addEventListener("click",()=>{
         }
     }
     if(flag){
-        reuslt.innerText = "Enter valid email"
+        reuslt.innerText = "Please Enter Valid Email"
     }
 })
 
