@@ -12,6 +12,7 @@ let loginstatus = document.getElementById("login");
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
+    error.innerText = "";
     let em = email.value;
     let p = password.value;
     let isregister = false;
@@ -23,7 +24,9 @@ form.addEventListener("submit",(e)=>{
         
     });
     if(isregister){
-        loginstatus.style.display = "block";
+        setTimeout(()=>{
+            loginstatus.style.display = "block";
+        },200)
         setTimeout(()=>{
             loginstatus.style.display = "none";
             window.location.href = "./index.html"
