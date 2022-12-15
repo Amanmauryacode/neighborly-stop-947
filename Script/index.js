@@ -1,5 +1,10 @@
 
+let logo = document.getElementById("logo");
 
+logo.addEventListener("click", () => {
+    window.location.href = "./index.html"
+})
+ 
 let arr = [
     "https://uidesign.gbtcdn.com/GB/image/5502/1190x420.jpg?imbypass=true"
     , "https://uidesign.gbtcdn.com/GB/image/8823/tools_1190X420_en.jpg"
@@ -130,7 +135,11 @@ function showProd(data) {
 
         let span = document.createElement("span");
         span.innerText= "Flash Sale"
-
+        box.addEventListener("click",()=>{
+            let products = [el];
+            localStorage.setItem("product",JSON.stringify(products));
+            window.location.href ="./product.html"
+        })
         if(ind<=14){
             box.append(img,description,price,span);
         }else{

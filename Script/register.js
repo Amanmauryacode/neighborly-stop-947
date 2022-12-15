@@ -13,19 +13,17 @@ let code = document.getElementById("code");
 let error = document.getElementById("error");
 let pin = document.getElementById("pin");
 
+
 var val = Math.floor(1000 + Math.random() * 9000);
 pin.innerText = val;
-pin.addEventListener("click", () => {
-    pin.innerText = "";
-    var val = Math.floor(1000 + Math.random() * 9000);
-    pin.innerText = val;
-})
+// pin.innerText = val;
+
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    error.innerText = ""
+    error.innerText = "";
     if (password.value.length >= 8 && password_2.value != "") {
-        if (password.value == password_2.value && pin.innerText == val) {
+        if (password.value == password_2.value && code.value == val) {
             error.innerText = "Successfully Registerd"
             error.style.color = "green"
             let data = {
@@ -38,7 +36,7 @@ form.addEventListener("submit", (e) => {
                 window.location.href = "./signin.html"
             },2000)
         } else {
-            if(pin.innerText != val){
+            if(code.value != val){
                 error.innerText = "Incorrect code"
                 error.style.color = "red"
             }else{
