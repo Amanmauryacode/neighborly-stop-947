@@ -179,6 +179,25 @@
     margin: auto;
 }
 
+#product>div>div>button{
+    width: 22%;
+    font-size: 20px;
+    margin: 15px 25px 0 0;
+    padding: 10px;
+}
+#product>div>div>button:first-child{
+    color: #fff;
+    background: #f30240;
+    border-color: #f30240;
+    font-weight: 700;
+}
+#product>div>div>button:last-child{
+    background-color: #ffeff2;
+    border: 2px solid #f30240;
+    color: #f30240;
+    font-weight: 700;
+}
+
 /* footer part css */
 
 footer{

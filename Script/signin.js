@@ -19,7 +19,9 @@ form.addEventListener("submit",(e)=>{
 
     RegisterData.forEach((element) => {
         if(element.email == em && element.password == p){
+            console.log(1);
             isregister = true;
+            localStorage.setItem("isregister",isregister);
         }
         
     });

@@ -6,15 +6,17 @@ logo.addEventListener("click", () => {
 })
 
 let prodData = JSON.parse(localStorage.getItem("product"));
+let cart = JSON.parse(localStorage.getItem("cart"))||[];
+let carCount = document.getElementById("cartcount");
 let container = document.getElementById("product")
 showprod(prodData)
 
 function showprod(prodData){
+  carCount.innerText = cart.length;
 prodData.forEach((el) => {
     let box = document.createElement("div");
     let img = document.createElement("img");
     img.setAttribute("src", el.image);
-    console.log(img);
 
     box.append(img);
 
@@ -52,12 +54,26 @@ prodData.forEach((el) => {
     let stock = document.createElement("span");
     stock.innerText = "in stock"
 
-    detail.append(description, sale, price, Shipping, qty, minus, quantity, plus, stock);
+    let btnbox = document.createElement("div");
+
+    let addtocart = document.createElement("button");
+    addtocart.innerText = "Add TO Cart";
+
+    let buyNow = document.createElement("button");
+    buyNow.innerText = "Buy Now";
+    btnbox.append(addtocart,buyNow);
+
+    detail.append(description, sale, price, Shipping, qty, minus, quantity, plus, stock,btnbox);
     container.append(box, detail)
 
+    addtocart.addEventListener("click",()=>{
+    cart.push(el);
+    localStorage.setItem("cart",JSON.stringify(cart));
+    carCount.innerText = cart.length;
+    })
+
     plus.addEventListener("click", () => {
-        el.count++
-        console.log(el.count)
+        +el.count++
         localStorage.setItem("product", JSON.stringify(prodData));
         quantity.innerText = el.count;
 
@@ -70,7 +86,7 @@ prodData.forEach((el) => {
           el.count = 1;
           localStorage.setItem("product", JSON.stringify(prodData));
         } else {
-          el.count--
+          +el.count--
           localStorage.setItem("product", JSON.stringify(prodData));
           quantity.innerText = el.count;
         }
