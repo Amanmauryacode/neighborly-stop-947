@@ -4,6 +4,22 @@ let logo = document.getElementById("logo");
 logo.addEventListener("click", () => {
     window.location.href = "./index.html"
 })
+// Cart count 
+let cartCount = document.getElementById("cartcount")
+let cartprod = JSON.parse(localStorage.getItem("cart"))||[];
+cartCount.innerText = cartprod.length;
+
+// CART FUNCTIONALITY 
+
+let cart = document.getElementById("cartpage");
+let isregister = localStorage.getItem("isregister")||false;
+cart.addEventListener("click",()=>{
+    if(isregister){
+        window.location.href = "./cart.html"
+    }else{
+        window.location.href = "./signin.html"
+    }
+})
  
 let arr = [
     "https://uidesign.gbtcdn.com/GB/image/5502/1190x420.jpg?imbypass=true"

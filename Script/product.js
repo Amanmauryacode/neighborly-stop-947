@@ -5,14 +5,26 @@ logo.addEventListener("click", () => {
     window.location.href = "./index.html"
 })
 
+// CART FUNCTIONALITY 
+
+let cartportion = document.getElementById("cartpage");
+let isregister = localStorage.getItem("isregister")||false;
+cartportion.addEventListener("click",()=>{
+    if(isregister){
+        window.location.href = "./cart.html"
+    }else{
+        window.location.href = "./signin.html"
+    }
+})
+
 let prodData = JSON.parse(localStorage.getItem("product"));
 let cart = JSON.parse(localStorage.getItem("cart"))||[];
-let carCount = document.getElementById("cartcount");
+let cartCount = document.getElementById("cartcount");
 let container = document.getElementById("product")
 showprod(prodData)
 
 function showprod(prodData){
-  carCount.innerText = cart.length;
+  cartCount.innerText = cart.length;
 prodData.forEach((el) => {
     let box = document.createElement("div");
     let img = document.createElement("img");
@@ -67,9 +79,14 @@ prodData.forEach((el) => {
     container.append(box, detail)
 
     addtocart.addEventListener("click",()=>{
-    cart.push(el);
-    localStorage.setItem("cart",JSON.stringify(cart));
-    carCount.innerText = cart.length;
+      if(isregister){
+        cart.push(el);
+        localStorage.setItem("cart",JSON.stringify(cart));
+        cartCount.innerText = cart.length;
+      }else{
+        window.location.href = "./signin.html"
+      }
+    
     })
 
     plus.addEventListener("click", () => {
