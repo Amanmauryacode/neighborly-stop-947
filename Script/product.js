@@ -2,30 +2,44 @@
 let logo = document.getElementById("logo");
 
 logo.addEventListener("click", () => {
-    window.location.href = "./index.html"
+  window.location.href = "./index.html"
 })
 
 // CART FUNCTIONALITY 
 
 let cartportion = document.getElementById("cartpage");
-let isregister = localStorage.getItem("isregister")||false;
-cartportion.addEventListener("click",()=>{
+let isregister = localStorage.getItem("isregister") || false;
+cartportion.addEventListener("click", () => {
+  if (isregister) {
+    window.location.href = "./cart.html"
+  } else {
+    window.location.href = "./signin.html"
+  }
+})
+
+// FAVORITE PAGE OPENING 
+
+let favpage = document.getElementById("favpage");
+favpage.addEventListener("click",()=>{
     if(isregister){
-        window.location.href = "./cart.html"
+        window.location.href = "./favorite.html"
     }else{
         window.location.href = "./signin.html"
     }
 })
 
 let prodData = JSON.parse(localStorage.getItem("product"));
-let cart = JSON.parse(localStorage.getItem("cart"))||[];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let favdata = JSON.parse(localStorage.getItem("favdata")) || [];
+let favcount = document.getElementById("favcount")
 let cartCount = document.getElementById("cartcount");
 let container = document.getElementById("product")
 showprod(prodData)
 
-function showprod(prodData){
+function showprod(prodData) {
   cartCount.innerText = cart.length;
-prodData.forEach((el) => {
+  favcount.innerText = favdata.length;
+  prodData.forEach((el) => {
     let box = document.createElement("div");
     let img = document.createElement("img");
     img.setAttribute("src", el.image);
@@ -47,7 +61,7 @@ prodData.forEach((el) => {
 
     let Shipping = document.createElement("p");
     Shipping.innerText = "Shipping: FREE SHIPPING to France Via Expedited Shipping "
-
+    
     el.quantity = 1;
 
     let minus = document.createElement("button");
@@ -73,41 +87,60 @@ prodData.forEach((el) => {
 
     let buyNow = document.createElement("button");
     buyNow.innerText = "Buy Now";
-    btnbox.append(addtocart,buyNow);
 
-    detail.append(description, sale, price, Shipping, qty, minus, quantity, plus, stock,btnbox);
+    let fav = document.createElement("button");
+    fav.innerText = "❤️ Favourite";
+    btnbox.append(addtocart, buyNow, fav);
+
+    detail.append(description, sale, price, Shipping, qty, minus, quantity, plus, stock, btnbox);
     container.append(box, detail)
 
-    addtocart.addEventListener("click",()=>{
-      if(isregister){
+    // ADD TO CART 
+
+    addtocart.addEventListener("click", () => {
+      if (isregister) {
         cart.push(el);
-        localStorage.setItem("cart",JSON.stringify(cart));
+        localStorage.setItem("cart", JSON.stringify(cart));
         cartCount.innerText = cart.length;
-      }else{
+      } else {
         window.location.href = "./signin.html"
       }
-    
+
     })
 
+    // ADD TO FAVORITE PART 
+
+    fav.addEventListener("click", () => {
+      if (isregister) {
+        favdata.push(el);
+        localStorage.setItem("favdata", JSON.stringify(favdata));
+        favcount.innerText = favdata.length;
+      } else {
+        window.location.href = "./signin.html"
+      }
+
+    })
+
+
     plus.addEventListener("click", () => {
-        +el.count++
+      el.quantity++;
+      localStorage.setItem("product", JSON.stringify(prodData));
+      quantity.innerText = el.quantity;
+
+    })
+
+    // decrease product quantity by clicking on minus btn
+
+    minus.addEventListener("click", () => {
+      if (el.quantity <= 1) {
+        el.quantity = 1;
         localStorage.setItem("product", JSON.stringify(prodData));
-        quantity.innerText = el.count;
-
-      })
-
-      // decrease product quantity by clicking on minus btn
-
-      minus.addEventListener("click", () => {
-        if (el.count <= 1) {
-          el.count = 1;
-          localStorage.setItem("product", JSON.stringify(prodData));
-        } else {
-          +el.count--
-          localStorage.setItem("product", JSON.stringify(prodData));
-          quantity.innerText = el.count;
-        }
-      })
-});
+      } else {
+        el.quantity--
+        localStorage.setItem("product", JSON.stringify(prodData));
+        quantity.innerText = el.quantity;
+      }
+    })
+  });
 
 }

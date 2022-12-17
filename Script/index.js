@@ -4,15 +4,35 @@ let logo = document.getElementById("logo");
 logo.addEventListener("click", () => {
     window.location.href = "./index.html"
 })
+// LOGIN STATUS 
+
+let isregister = localStorage.getItem("isregister")||false;
+
 // Cart count 
-let cartCount = document.getElementById("cartcount")
+let cartCount = document.getElementById("cartcount");
 let cartprod = JSON.parse(localStorage.getItem("cart"))||[];
 cartCount.innerText = cartprod.length;
+
+// Favorite Count 
+let favdata = JSON.parse(localStorage.getItem("favdata")) || [];
+let favcount = document.getElementById("favcount");
+favcount.innerText = favdata.length;
+
+// FAVORITE FUNCTIONALITY
+
+let favpage = document.getElementById("favpage");
+favpage.addEventListener("click",()=>{
+    if(isregister){
+        window.location.href = "./favorite.html"
+    }else{
+        window.location.href = "./signin.html"
+    }
+})
 
 // CART FUNCTIONALITY 
 
 let cart = document.getElementById("cartpage");
-let isregister = localStorage.getItem("isregister")||false;
+
 cart.addEventListener("click",()=>{
     if(isregister){
         window.location.href = "./cart.html"

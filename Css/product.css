@@ -30,6 +30,7 @@
 
 
 .headentry {
+    padding: 0 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -195,6 +196,12 @@
     background-color: #ffeff2;
     border: 2px solid #f30240;
     color: #f30240;
+    font-weight: 700;
+}
+#product>div>div>button:nth-child(2){
+    background-color: #ffeff2;
+    border: 2px solid #ff0000;
+    color: #ff0040;
     font-weight: 700;
 }
 
