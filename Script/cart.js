@@ -6,6 +6,7 @@ logo.addEventListener("click", () => {
 
 let cartitems = JSON.parse(localStorage.getItem("cart")) || [];
 let container = document.getElementById("cartProduct");
+let added = document.getElementById("added");
 
 showcartItems(cartitems)
 function showcartItems(cartitems) {
@@ -84,6 +85,10 @@ function showcartItems(data) {
         // Removing element from cart product 
 
         remove.addEventListener("click", () => {
+            added.style.display = "inline"
+            setTimeout(()=>{
+                added.style.display = "none"
+            },2000)
             data.splice(ind, 1);
             localStorage.setItem("cart", JSON.stringify(data));
             showcartItems(data);

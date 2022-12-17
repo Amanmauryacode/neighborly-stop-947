@@ -20,12 +20,12 @@ cartportion.addEventListener("click", () => {
 // FAVORITE PAGE OPENING 
 
 let favpage = document.getElementById("favpage");
-favpage.addEventListener("click",()=>{
-    if(isregister){
-        window.location.href = "./favorite.html"
-    }else{
-        window.location.href = "./signin.html"
-    }
+favpage.addEventListener("click", () => {
+  if (isregister) {
+    window.location.href = "./favorite.html"
+  } else {
+    window.location.href = "./signin.html"
+  }
 })
 
 let prodData = JSON.parse(localStorage.getItem("product"));
@@ -34,6 +34,7 @@ let favdata = JSON.parse(localStorage.getItem("favdata")) || [];
 let favcount = document.getElementById("favcount")
 let cartCount = document.getElementById("cartcount");
 let container = document.getElementById("product")
+let added = document.getElementById("added");
 showprod(prodData)
 
 function showprod(prodData) {
@@ -61,7 +62,7 @@ function showprod(prodData) {
 
     let Shipping = document.createElement("p");
     Shipping.innerText = "Shipping: FREE SHIPPING to France Via Expedited Shipping "
-    
+
     el.quantity = 1;
 
     let minus = document.createElement("button");
@@ -99,6 +100,10 @@ function showprod(prodData) {
 
     addtocart.addEventListener("click", () => {
       if (isregister) {
+        added.style.display = "inline"
+        setTimeout(() => {
+          added.style.display = "none"
+        }, 2000)
         cart.push(el);
         localStorage.setItem("cart", JSON.stringify(cart));
         cartCount.innerText = cart.length;
@@ -112,6 +117,10 @@ function showprod(prodData) {
 
     fav.addEventListener("click", () => {
       if (isregister) {
+        added.style.display = "inline"
+        setTimeout(() => {
+          added.style.display = "none"
+        }, 2000)
         favdata.push(el);
         localStorage.setItem("favdata", JSON.stringify(favdata));
         favcount.innerText = favdata.length;

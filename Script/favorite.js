@@ -6,7 +6,9 @@ logo.addEventListener("click", () => {
 })
 
 let favitems = JSON.parse(localStorage.getItem("favdata")) || [];
+let cartItems = JSON.parse(localStorage.getItem("cart"))||[];
 let container = document.getElementById("favProduct");
+let added = document.getElementById("added")
 
 showfavItems(favitems)
 function showfavItems(favitems) {
@@ -40,18 +42,33 @@ function showfavItems(data) {
 
         let remove = document.createElement("button");
         remove.innerText = "Delete";
+        let cart = document.createElement("button");
+        cart.setAttribute("class","addtocart")
+        cart.innerText = "Cart";
 
-        
+        cart.addEventListener("click",()=>{
+            added.style.display = "inline"
+            setTimeout(()=>{
+                added.style.display = "none"
+            },2000)
+            cartItems.push(el);
+            localStorage.setItem("cart",JSON.stringify(cartItems));
+        })
         // Removing element from cart product 
 
         remove.addEventListener("click", () => {
+            added.innerText = "✅ Successfully Delete"
+            added.style.display = "inline"
+            setTimeout(()=>{
+                added.style.display = "none"
+            },2000)
             data.splice(ind, 1);
             localStorage.setItem("favdata", JSON.stringify(data));
             showfavItems(data);
             console.log(data);
         })
  
-        box.append(img, description, price, remove);
+        box.append(img, description, price, remove,cart);
         container.append(box);
     })
 }

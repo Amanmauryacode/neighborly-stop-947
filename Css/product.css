@@ -131,6 +131,20 @@
     background: #dedede;
 }
 
+#added{
+    display: none;
+    position: fixed;
+    bottom: 4%;
+    left: 45%;
+    width: 17%;
+    font-size: 23px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0,0,0,0.8);
+    color: wheat;
+}
+
 #product{
     margin-top: 10px;
     display: flex;

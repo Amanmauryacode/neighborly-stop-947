@@ -26,6 +26,20 @@ nav>img {
     
 }
 
+#added{
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 45%;
+    width: 15%;
+    font-size: 23px;
+    border: 1px solid black;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0,0,0,0.8);
+    color: wheat;
+}
+
 .cartHeading{
     background: white;
     width: 80%;
