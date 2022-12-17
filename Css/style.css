@@ -484,3 +484,23 @@ footer{
     font-size: 12px;
     text-align: center;
 }
+
+#logoutbtn{
+    display: none;
+    position: fixed;
+    top: 9%;
+    right: 22%;
+    width: 10%;
+    height: 100px;
+    background: white;
+}
+
+#logoutbtn>button{
+    margin: 21% 5%;
+    font-size: 20px;
+    width: 90%;
+    padding: 5px 14px;
+    background: red;
+    color: white;
+    border: 1px solid red;
+}

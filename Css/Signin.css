@@ -86,16 +86,27 @@ form>div>span{
 #login{
     display: none;
     position: fixed;
-    top: 0%;
-    left: 50%;
+    top: 10%;
+    left: 45%;
+    width: 15%;
+    border: 1px solid black;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    color: wheat;
 }
 
-#login>p{
-    font-size: 24px;
-    padding: 12px;
-    border: 0.5px solid black;
-    color: green;
-    border-radius: 34px;
+
+
+#Admin{
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 45%;
+    width: 15%;
+    border: 1px solid black;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    color: wheat;
 }
 
 

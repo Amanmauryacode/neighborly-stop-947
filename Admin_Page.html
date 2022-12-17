@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techgear/Admin_Pannel</title>
+    <link rel="stylesheet" href="./Css/admin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+</head>
+<body>
+    <nav>
+        <img id="logo" src="./logo.png" alt="">
+        <button id="logout">Log Out</button>
+    </nav>
+
+    <h1 id="admin">Admin Pannel</h1>
+
+    <div class="form">
+        <div>
+            <h2>PRODUCT UPLOAD</h2>
+        </div>
+        <p id="error"></p>
+        <form >
+            <div>
+                <span>Image Link : </span>
+                <input type="text" placeholder="Image link" id="imgLink">
+            </div>
+            <div>
+                <span>Product Descriptions : </span>
+                <input type="text" placeholder="Descriptions" id="Descriptions">
+            </div>
+            <div>
+                <span>Product price : </span>
+                <input type="text" placeholder="Product Price" id="Price">
+            </div>
+            <div>
+                <span>Product Category : </span>
+                <input type="text" placeholder="Category" id="Category">
+            </div>
+            
+        
+            <input id="Upload" type="submit" value="Upload">
+        </form>
+    </div>
+
+    <div id="uploaded">
+        <p>✅ Successfuly Upload</p>
+    </div>
+</body>
+<script src="./Script/admin.js"></script>
+</html>

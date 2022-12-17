@@ -6,11 +6,23 @@ logo.addEventListener("click", () => {
 })
 // LOGIN STATUS 
 
-let isregister = localStorage.getItem("isregister")||false;
+let isregister = localStorage.getItem("isregister") || false;
+
+
+// signin portal 
+
+let signin = document.getElementById("signin");
+let profile = document.getElementById("profile");
+let logout = document.getElementById("logoutbtn");
+let signout = document.getElementById("signout")
+
+signin.addEventListener("click", () => {
+    window.location.href = "./signin.html"
+})
 
 // Cart count 
 let cartCount = document.getElementById("cartcount");
-let cartprod = JSON.parse(localStorage.getItem("cart"))||[];
+let cartprod = JSON.parse(localStorage.getItem("cart")) || [];
 cartCount.innerText = cartprod.length;
 
 // Favorite Count 
@@ -21,10 +33,10 @@ favcount.innerText = favdata.length;
 // FAVORITE FUNCTIONALITY
 
 let favpage = document.getElementById("favpage");
-favpage.addEventListener("click",()=>{
-    if(isregister){
+favpage.addEventListener("click", () => {
+    if (isregister) {
         window.location.href = "./favorite.html"
-    }else{
+    } else {
         window.location.href = "./signin.html"
     }
 })
@@ -33,14 +45,14 @@ favpage.addEventListener("click",()=>{
 
 let cart = document.getElementById("cartpage");
 
-cart.addEventListener("click",()=>{
-    if(isregister){
+cart.addEventListener("click", () => {
+    if (isregister) {
         window.location.href = "./cart.html"
-    }else{
+    } else {
         window.location.href = "./signin.html"
     }
 })
- 
+
 let arr = [
     "https://uidesign.gbtcdn.com/GB/image/5502/1190x420.jpg?imbypass=true"
     , "https://uidesign.gbtcdn.com/GB/image/8823/tools_1190X420_en.jpg"
@@ -138,26 +150,29 @@ deal.forEach((el) => {
     allDeal.append(box);
 })
 
+let extraProd = JSON.parse(localStorage.getItem("extraProd")) || [];
+
 
 let container_1 = document.getElementById("rec");
 fetchdata();
 
-function fetchdata(){
+function fetchdata() {
     let promise = fetch("https://6398162777359127a046c700.mockapi.io/products")
-    .then((requiredata)=>{
-        return requiredata.json();
-    })
-    .then((acturaldata)=>{
-        showProd(acturaldata)
-    })
-    .catch((error)=>{
-        console.error(error);
-    })
+        .then((requiredata) => {
+            return requiredata.json();
+        })
+        .then((acturaldata) => {
+            showProd(acturaldata, extraProd)
+
+        })
+        .catch((error) => {
+            console.error(error);
+        })
 }
 
-function showProd(data) {
+function showProd(data, extraProd) {
     container_1.innerHTML = "";
-    data.forEach((el,ind) => {
+    data.forEach((el, ind) => {
         let box = document.createElement("div");
 
         let img = document.createElement("img");
@@ -170,16 +185,44 @@ function showProd(data) {
         price.innerText = "£" + el.price;
 
         let span = document.createElement("span");
-        span.innerText= "Flash Sale"
-        box.addEventListener("click",()=>{
+        span.innerText = "Flash Sale"
+        box.addEventListener("click", () => {
             let products = [el];
-            localStorage.setItem("product",JSON.stringify(products));
-            window.location.href ="./product.html"
+            localStorage.setItem("product", JSON.stringify(products));
+            window.location.href = "./product.html"
         })
-        if(ind<=14){
-            box.append(img,description,price,span);
-        }else{
-            box.append(img,description,price);
+        if (ind <= 14) {
+            box.append(img, description, price, span);
+        } else {
+            box.append(img, description, price);
+        }
+
+        container_1.append(box);
+    })
+
+    extraProd.forEach((el, ind) => {
+        let box = document.createElement("div");
+
+        let img = document.createElement("img");
+        img.setAttribute("src", el.image);
+
+        let description = document.createElement("p");
+        description.innerText = el.description;
+
+        let price = document.createElement("h3");
+        price.innerText = "£" + el.price;
+
+        let span = document.createElement("span");
+        span.innerText = "Flash Sale"
+        box.addEventListener("click", () => {
+            let products = [el];
+            localStorage.setItem("product", JSON.stringify(products));
+            window.location.href = "./product.html"
+        })
+        if (ind <= 14) {
+            box.append(img, description, price, span);
+        } else {
+            box.append(img, description, price);
         }
 
         container_1.append(box);
@@ -192,21 +235,21 @@ let emailInput = document.getElementById("email");
 let subscribe = document.getElementById("subscribe");
 let success = document.getElementById("succesfully")
 
-subscribe.addEventListener("click",()=>{
-    let email =emailInput.value;
+subscribe.addEventListener("click", () => {
+    let email = emailInput.value;
     let reuslt = document.getElementById("result")
     let flag = true;
-    for(let i=0;i<email.length;i++){
-        if(email[i] == "@" && email[i+1] != undefined){
+    for (let i = 0; i < email.length; i++) {
+        if (email[i] == "@" && email[i + 1] != undefined) {
             success.style.display = "block"
-            setTimeout(()=>{
+            setTimeout(() => {
                 success.style.display = "none"
-            },2000)
+            }, 2000)
             flag = false;
             break;
         }
     }
-    if(flag){
+    if (flag) {
         reuslt.innerText = "Please Enter Valid Email"
     }
 })
@@ -227,6 +270,7 @@ function hidep() {
     let div = document.getElementById("p1");
     div.style.display = "none"
 }
+
 
 
 
