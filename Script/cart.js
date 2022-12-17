@@ -7,6 +7,7 @@ logo.addEventListener("click", () => {
 let cartitems = JSON.parse(localStorage.getItem("cart")) || [];
 let container = document.getElementById("cartProduct");
 let added = document.getElementById("added");
+let subtotal = document.getElementById("subtotal");
 
 showcartItems(cartitems)
 function showcartItems(cartitems) {
@@ -19,6 +20,12 @@ function showcartItems(cartitems) {
 }
 function showcartItems(data) {
     container.innerText = ""
+    let total = 0;
+    data.forEach((el)=>{
+        total += el.quantity*el.price
+    })
+    subtotal.innerText = "£ " +total;
+    subtotal.style.color ="red"
     if (cartitems.length == 0) {
         container.innerText = ""
         let p = document.createElement("p");
@@ -36,7 +43,7 @@ function showcartItems(data) {
         description.innerText = el.description;
 
         let price = document.createElement("h3");
-        price.innerText = "£" + el.price;
+        price.innerText = "£ " + el.price;
 
         let remove = document.createElement("button");
         remove.innerText = "Remove";
@@ -73,7 +80,6 @@ function showcartItems(data) {
             if (el.quantity <= 1) {
                 el.quantity = 1;
                 localStorage.setItem("cart", JSON.stringify(data));
-                showcartItems(data);
             } else {
                 el.quantity--
                 localStorage.setItem("cart", JSON.stringify(data));
