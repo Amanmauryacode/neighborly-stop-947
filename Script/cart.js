@@ -24,7 +24,7 @@ function showcartItems(data) {
     data.forEach((el)=>{
         total += el.quantity*el.price
     })
-    subtotal.innerText = "£ " +total;
+    subtotal.innerText = "£ " +total.toFixed(2);
     subtotal.style.color ="red"
     if (cartitems.length == 0) {
         container.innerText = ""

@@ -4,6 +4,14 @@ let logo = document.getElementById("logo");
 logo.addEventListener("click", () => {
     window.location.href = "./index.html"
 })
+
+// SEARCH FUNCTIONALITY
+
+let search_1 = document.getElementById("search-1");
+search_1.addEventListener("click",()=>{
+    window.location.href ="./search_page.html";
+})
+
 // LOGIN STATUS 
 
 let isregister = localStorage.getItem("isregister") || false;
