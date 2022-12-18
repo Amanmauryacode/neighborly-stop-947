@@ -26,13 +26,15 @@ nav{
 /* RESULT PRODUCT */
 
 #resultProd{
-    min-height: 1000px;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     gap: 15px;
 }
 #resultProd>div{
     padding: 10px;
+}
+#resultProd>div:hover{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #resultProd>div>img{
