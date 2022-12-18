@@ -27,24 +27,25 @@ function fetch1(){
 
 
 
-productCategory.addEventListener("change",(e)=>{
+productCategory.addEventListener("input",(e)=>{
     let filterBy = e.currentTarget.value;
     let newdata = data.filter((el)=>{
         if(filterBy == ""){
-            return;
+            return false;
         }
         return el.category.toLowerCase().includes(filterBy.toLowerCase())
     })
     let newdata1 = addedProd.filter((el)=>{
         if(filterBy == ""){
-            return;
+            return false;
         }
+
         return el.category.toLowerCase().includes(filterBy.toLowerCase())
     })
     showProd(newdata,newdata1)
 })
 
-showProd(data,extraProd)
+showProd(data,extraProd = [])
 function showProd(data,extraProd){
     productDiv.innerHTML = "";
     data.forEach((el, ind) => {
@@ -58,14 +59,15 @@ function showProd(data,extraProd){
 
         let price = document.createElement("h3");
         price.innerText = "£" + el.price;
-
+        let category = document.createElement("span");
+        category.innerText = el.category.toUpperCase();
         
         box.addEventListener("click", () => {
             let products = [el];
             localStorage.setItem("product", JSON.stringify(products));
             window.location.href = "./product.html"
         })
-        box.append(img, description, price);
+        box.append(img, description, price,category);
         productDiv.append(box);
     })
 
@@ -81,18 +83,15 @@ function showProd(data,extraProd){
         let price = document.createElement("h3");
         price.innerText = "£" + el.price;
 
-        let span = document.createElement("span");
-        span.innerText = "Flash Sale"
+        let category = document.createElement("span");
+        category.innerText = el.category
         box.addEventListener("click", () => {
             let products = [el];
             localStorage.setItem("product", JSON.stringify(products));
             window.location.href = "./product.html"
         })
-        if (ind <= 14) {
-            box.append(img, description, price, span);
-        } else {
-            box.append(img, description, price);
-        }
+
+        box.append(img, description, price, category);
 
         productDiv.append(box);
     })
