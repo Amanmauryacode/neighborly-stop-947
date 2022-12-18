@@ -1,0 +1,86 @@
+nav {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+
+nav>img {
+    width: 14%;
+    padding-top: 12px;
+}
+nav>button {
+    height: 1%;
+    padding: 7px;
+    margin-top: 2%;
+    background: red;
+    color: white;
+    border: 1px solid red;
+    font-weight: 900;
+}
+
+#admin{
+    width: 80%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    border-bottom: 1px solid black;
+}
+
+.form{
+    width:40%;
+    padding: 0 2%;
+    margin: auto;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.form>div{
+    display: flex;
+    font-size: 14px;
+    width: 80%;
+    margin-left: 2%;
+}
+
+.form>div>h2{
+    border-bottom: 5px solid #FDD835;
+    margin-right: 35px;
+}
+
+
+.form>form>div{
+    margin: 2%;
+    margin-bottom: 5%;
+}
+
+form>div>input{
+    font-size: 17px;
+    padding: 10px 10px 10px 10px;
+    width: 68%;
+}
+form>div:nth-child(1)>input{
+    margin-left: 10.5%;
+}
+form>div:nth-child(3)>input{
+    margin-left: 8.5%;
+}
+form>div:nth-child(4)>input{
+    margin-left: 3.5%;
+}
+
+form>input{
+    font-size: 17px;
+    padding: 10px 10px 10px 10px;
+    margin: 1% 0 8% 27%;
+    width: 68%;
+}
+
+#uploaded{
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 45%;
+    width: 15%;
+    border: 1px solid black;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    color: wheat;
+}
