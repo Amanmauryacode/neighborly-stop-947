@@ -96,6 +96,10 @@ function showprod(prodData) {
     detail.append(description, sale, price, Shipping, qty, minus, quantity, plus, stock, btnbox);
     container.append(box, detail)
 
+    // BUY NOW
+    buyNow.addEventListener("click",()=>{
+      alert("Order Placed successfully")
+    })
     // ADD TO CART 
 
     addtocart.addEventListener("click", () => {

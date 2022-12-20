@@ -105,3 +105,8 @@ function showcartItems(data) {
         container.append(box);
     })
 }
+
+let buybtn = document.getElementById("placeOrder");
+buybtn.addEventListener("click",()=>{
+    alert("Order Placed successfully")
+})
